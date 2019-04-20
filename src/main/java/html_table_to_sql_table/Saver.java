@@ -36,10 +36,9 @@ public class Saver {
 	}
 	
 	private void saveRows(FormalizedData data, String tableName) {
-		data.getRows()
-			.forEach(row ->
-				dsl.insertInto(table(tableName))
-					.values(row)
-					.execute());
+		data.getRows().forEach(row ->
+			dsl.insertInto(table(tableName))
+				.values(row)
+				.execute());
 	}
 }
