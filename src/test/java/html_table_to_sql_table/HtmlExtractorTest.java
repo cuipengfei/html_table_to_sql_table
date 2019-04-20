@@ -15,7 +15,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 public class HtmlExtractorTest {
 	@Test
-	public void name() throws URISyntaxException, IOException {
+	public void should_extract_html_table_from_local_file() throws URISyntaxException, IOException {
 		//given
 		Path path = Paths.get(getSystemResource("simple_file.htm").toURI());
 		

@@ -3,9 +3,12 @@ package html_table_to_sql_table;
 import java.util.List;
 
 public class FormalizedData {
-	private final String tableName;
-	private final List<Column> columns;
-	private final List<List> rows;
+	private String tableName;
+	private List<Column> columns;
+	private List<List> rows;
+	
+	public FormalizedData() {
+	}
 	
 	public FormalizedData(String tableName, List<Column> columns, List<List> rows) {
 		this.tableName = tableName;
@@ -23,5 +26,17 @@ public class FormalizedData {
 	
 	public List<List> getRows() {
 		return rows;
+	}
+	
+	public void setTableName(String tableName) {
+		this.tableName = tableName;
+	}
+	
+	public void setColumns(List<Column> columns) {
+		this.columns = columns;
+	}
+	
+	public void setRows(List<List> rows) {
+		this.rows = rows;
 	}
 }
