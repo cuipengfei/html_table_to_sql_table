@@ -22,7 +22,8 @@ repositories {
 
 dependencies {
     // This dependency is found on compile classpath of this component and consumers.
-    implementation 'com.google.guava:guava:27.0.1-jre'
+    implementation 'com.h2database:h2:1.4.199'
+    implementation 'org.jooq:jooq:3.11.11'
 
     // Use JUnit test framework
     testImplementation 'junit:junit:4.12'
