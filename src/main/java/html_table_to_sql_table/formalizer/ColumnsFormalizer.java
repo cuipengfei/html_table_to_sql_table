@@ -29,15 +29,15 @@ public class ColumnsFormalizer extends Formalizer {
 		this.formalizedData.setColumns(columns);
 	}
 	
+	private String formalizeColumnName(String column) {
+		return column.toLowerCase().replace(" ", "_");
+	}
+	
 	private DataType formalizeDataType(String columnName) {
 		return columnKeyWordMap.keySet().stream()
 			.filter(columnName::contains)
 			.findFirst()
 			.map(columnKeyWordMap::get)
 			.orElse(VARCHAR);
-	}
-	
-	private String formalizeColumnName(String column) {
-		return column.toLowerCase().replace(" ", "_");
 	}
 }

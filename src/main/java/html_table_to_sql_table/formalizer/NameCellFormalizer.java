@@ -7,7 +7,7 @@ import static java.util.Arrays.asList;
 import static java.util.Collections.reverse;
 import static java.util.stream.Collectors.joining;
 
-public class PersonNameFormalizer extends Formalizer {
+public class NameCellFormalizer extends Formalizer {
 	@Override
 	protected void formalize() {
 		convertCells(

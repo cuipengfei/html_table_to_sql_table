@@ -10,8 +10,8 @@ import java.util.function.Predicate;
 import static java.util.stream.Collectors.toList;
 
 public abstract class Formalizer {
-	protected RawData rawData;
-	protected FormalizedData formalizedData = new FormalizedData();
+	RawData rawData;
+	FormalizedData formalizedData = new FormalizedData();
 	
 	private Formalizer next;
 	
@@ -20,8 +20,6 @@ public abstract class Formalizer {
 		initFormalizedData(rawData);
 		return this;
 	}
-	
-	protected abstract void formalize();
 	
 	public Formalizer next(Formalizer next) {
 		this.next = next;
@@ -38,6 +36,8 @@ public abstract class Formalizer {
 		return formalizedData;
 	}
 	
+	protected abstract void formalize();
+	
 	private void initFormalizedData(RawData rawData) {
 		formalizedData.setTableName(rawData.getTableName());
 		List<List> cloned = rawData.getRows().stream()
@@ -47,12 +47,12 @@ public abstract class Formalizer {
 	}
 	
 	void convertCells(Predicate<Column> columnPredicate, Function<String, Object> cellConvert) {
-		this.formalizedData.getColumns().stream()
+		formalizedData.getColumns().stream()
 			.filter(columnPredicate)
 			.forEach(pickedColumn -> {
-				int indexOfPickedField = this.formalizedData.getColumns().indexOf(pickedColumn);
+				int indexOfPickedField = formalizedData.getColumns().indexOf(pickedColumn);
 				
-				this.formalizedData.getRows().forEach(row -> {
+				formalizedData.getRows().forEach(row -> {
 					String pickedValue = row.get(indexOfPickedField).toString();
 					row.set(indexOfPickedField, cellConvert.apply(pickedValue));
 				});

@@ -7,7 +7,7 @@ import static java.util.Arrays.asList;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
-public class PersonNameFormalizerTest {
+public class NameCellFormalizerTest {
 	@Test
 	public void first_name_should_be_before_last_name() {
 		//given
@@ -19,7 +19,7 @@ public class PersonNameFormalizerTest {
 		//when
 		FormalizedData formalizedData = new ColumnsFormalizer()
 			.init(rawData)
-			.next(new PersonNameFormalizer())
+			.next(new NameCellFormalizer())
 			.run();
 		
 		//then
@@ -38,7 +38,7 @@ public class PersonNameFormalizerTest {
 		//when
 		FormalizedData formalizedData = new ColumnsFormalizer()
 			.init(rawData)
-			.next(new PersonNameFormalizer())
+			.next(new NameCellFormalizer())
 			.run();
 		
 		//then

@@ -7,7 +7,7 @@ public class FormalizedData {
 	private List<Column> columns;
 	private List<List> rows;
 	
-	public FormalizedData() {
+	FormalizedData() {
 	}
 	
 	public FormalizedData(String tableName, List<Column> columns, List<List> rows) {
@@ -28,15 +28,15 @@ public class FormalizedData {
 		return rows;
 	}
 	
-	public void setTableName(String tableName) {
+	void setTableName(String tableName) {
 		this.tableName = tableName;
 	}
 	
-	public void setColumns(List<Column> columns) {
+	void setColumns(List<Column> columns) {
 		this.columns = columns;
 	}
 	
-	public void setRows(List<List> rows) {
+	void setRows(List<List> rows) {
 		this.rows = rows;
 	}
 }
