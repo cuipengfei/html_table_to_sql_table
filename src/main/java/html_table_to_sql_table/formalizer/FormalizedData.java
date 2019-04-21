@@ -1,4 +1,4 @@
-package html_table_to_sql_table;
+package html_table_to_sql_table.formalizer;
 
 import java.util.List;
 

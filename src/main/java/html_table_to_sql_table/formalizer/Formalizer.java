@@ -1,8 +1,6 @@
 package html_table_to_sql_table.formalizer;
 
-import html_table_to_sql_table.Column;
-import html_table_to_sql_table.FormalizedData;
-import html_table_to_sql_table.RawData;
+import html_table_to_sql_table.extractor.RawData;
 
 import java.util.ArrayList;
 import java.util.List;

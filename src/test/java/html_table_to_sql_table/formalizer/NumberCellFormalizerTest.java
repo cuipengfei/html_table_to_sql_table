@@ -1,7 +1,6 @@
 package html_table_to_sql_table.formalizer;
 
-import html_table_to_sql_table.FormalizedData;
-import html_table_to_sql_table.RawData;
+import html_table_to_sql_table.extractor.RawData;
 import org.junit.Test;
 
 import static java.util.Arrays.asList;

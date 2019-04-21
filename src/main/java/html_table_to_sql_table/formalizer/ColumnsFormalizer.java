@@ -1,6 +1,5 @@
 package html_table_to_sql_table.formalizer;
 
-import html_table_to_sql_table.Column;
 import org.jooq.DataType;
 
 import java.util.HashMap;

@@ -1,14 +1,10 @@
 package html_table_to_sql_table.formalizer;
 
-import html_table_to_sql_table.FormalizedData;
-import html_table_to_sql_table.RawData;
+import html_table_to_sql_table.extractor.RawData;
 import org.junit.Test;
 
 import java.sql.Date;
 
-import static java.sql.Date.valueOf;
-import static java.time.YearMonth.parse;
-import static java.time.format.DateTimeFormatter.ofPattern;
 import static java.util.Arrays.asList;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;

@@ -1,5 +1,6 @@
-package html_table_to_sql_table;
+package html_table_to_sql_table.saver;
 
+import html_table_to_sql_table.formalizer.FormalizedData;
 import org.jooq.CreateTableAsStep;
 import org.jooq.DSLContext;
 import org.jooq.Query;

@@ -1,4 +1,4 @@
-package html_table_to_sql_table;
+package html_table_to_sql_table.extractor;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Element;
