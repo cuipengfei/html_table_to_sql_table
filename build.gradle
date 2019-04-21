@@ -25,6 +25,7 @@ dependencies {
     implementation 'com.h2database:h2:1.4.199'
     implementation 'org.jooq:jooq:3.11.11'
     implementation 'org.jsoup:jsoup:1.11.3'
+    implementation 'joda-time:joda-time:2.10.1'
 
     // Use JUnit test framework
     testImplementation 'junit:junit:4.12'
