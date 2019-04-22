@@ -14,17 +14,22 @@ import static java.lang.ClassLoader.getSystemResource;
 
 public class Main {
 	public static void main(String[] args) throws URISyntaxException, IOException {
-		Path path = Paths.get(getSystemResource("bar_list.htm").toURI());
-		RawData rawData = new HtmlExtractor().extractFrom(path);
-		
-		FormalizedData formalizedData = new ColumnsFormalizer()
+		RawData rawData = parseHtml();
+		FormalizedData formalizedData = formalizeRawData(rawData);
+		Saver.instance().save(formalizedData);
+	}
+	
+	private static FormalizedData formalizeRawData(RawData rawData) {
+		return new ColumnsFormalizer()
 			.init(rawData)
-			.next(new ColumnsFormalizer())
 			.next(new DateCellFormalizer())
 			.next(new NumberCellFormalizer())
 			.next(new NameCellFormalizer())
 			.run();
-		
-		Saver.instance().save(formalizedData);
+	}
+	
+	private static RawData parseHtml() throws URISyntaxException, IOException {
+		Path path = Paths.get(getSystemResource("bar_list.htm").toURI());
+		return new HtmlExtractor().extractFrom(path);
 	}
 }

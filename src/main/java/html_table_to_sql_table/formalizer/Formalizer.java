@@ -27,16 +27,15 @@ public abstract class Formalizer {
 			next.init(rawData);
 			next.formalizedData = formalizedData;
 		} else {
-			this.next.next(next);
+			this.next.next(next); //穿成一串职责链
 		}
-		
 		return this;
 	}
 	
 	public FormalizedData run() {
 		this.formalize();
 		if (next != null) {
-			return next.run();
+			return next.run(); // 依次执行职责链
 		}
 		return formalizedData;
 	}
@@ -51,6 +50,8 @@ public abstract class Formalizer {
 		formalizedData.setRows(cloned);
 	}
 	
+	// 子类直接调用这个函数就好了，不需要自己去识别要convert哪些单元格，以及如何替换单元格里面的值
+	// 子类只需要提供一个predicate来表明它想要识别具有哪些特征的column，并提供一个单元格值的转换函数即可
 	void convertCells(Predicate<Column> columnPredicate, Function<String, Object> cellConvert) {
 		formalizedData.getColumns().stream()
 			.filter(columnPredicate)

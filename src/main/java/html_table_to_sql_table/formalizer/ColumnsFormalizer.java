@@ -11,6 +11,7 @@ import static org.jooq.impl.SQLDataType.*;
 
 public class ColumnsFormalizer extends Formalizer {
 	
+	// 根据字段名里包含的关键字来推断字段类型
 	private static final Map<String, DataType> columnKeyWordMap =
 		new HashMap<String, DataType>() {{
 			put("number", INTEGER);
@@ -20,12 +21,11 @@ public class ColumnsFormalizer extends Formalizer {
 	@Override
 	protected void formalize() {
 		List<Column> columns = this.rawData.getColumns().stream()
-			.map(column -> {
-				String columnName = formalizeColumnName(column);
-				DataType dataType = formalizeDataType(columnName);
-				return new Column(columnName, dataType);
-			})
+			.map(column -> new Column(
+				formalizeColumnName(column),
+				formalizeDataType(formalizeColumnName(column))))
 			.collect(toList());
+		
 		this.formalizedData.setColumns(columns);
 	}
 	
@@ -38,6 +38,6 @@ public class ColumnsFormalizer extends Formalizer {
 			.filter(columnName::contains)
 			.findFirst()
 			.map(columnKeyWordMap::get)
-			.orElse(VARCHAR);
+			.orElse(VARCHAR); // 如果没有匹配到关键字，默认当做varchar
 	}
 }
