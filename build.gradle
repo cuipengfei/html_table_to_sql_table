@@ -6,6 +6,7 @@
  * User Manual available at https://docs.gradle.org/5.4/userguide/tutorial_java_projects.html
  */
 
+
 plugins {
     // Apply the java plugin to add support for Java
     id 'java'
@@ -33,3 +34,5 @@ dependencies {
 
 // Define the main class for the application
 mainClassName = 'html_table_to_sql_table.Main'
+sourceCompatibility = 1.8
+targetCompatibility = 1.8

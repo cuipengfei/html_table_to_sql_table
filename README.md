@@ -29,3 +29,15 @@ extractor: 信源有各种可能性，不过目前唯一确定的信源来自于
 formalizer: 字段的名字，数据类型，字段值可能五花八门，这块可以先把对未来的扩展机制做了
 
 saver: 这里面临的变化会比较少，应该会是比较稳定的，暂时无需格外过多关注
+
+# how to run
+
+run the ./run_me.sh under the root dir of this project.
+
+then open localhost:8082 to view generated sql data.
+
+Put in these 2 parameters. 
+
+Driver Class: org.h2.Driver
+
+JDBC URL: jdbc:h2:./h2DB
