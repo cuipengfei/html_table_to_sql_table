@@ -2,6 +2,8 @@
 
 rm ./h2db.mv.db
 
+echo "please make sure you have java 1.8 or higher"
+
 echo "going to read html and generate sql"
 
 ./gradlew run
