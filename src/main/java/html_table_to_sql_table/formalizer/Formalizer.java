@@ -22,9 +22,14 @@ public abstract class Formalizer {
 	}
 	
 	public Formalizer next(Formalizer next) {
-		this.next = next;
-		next.init(rawData);
-		next.formalizedData = formalizedData;
+		if (this.next == null) {
+			this.next = next;
+			next.init(rawData);
+			next.formalizedData = formalizedData;
+		} else {
+			this.next.next(next);
+		}
+		
 		return this;
 	}
 	
