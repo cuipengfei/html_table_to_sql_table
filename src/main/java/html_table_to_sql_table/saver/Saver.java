@@ -13,7 +13,7 @@ public class Saver {
 	
 	private static final Saver saver = new Saver();
 	
-	private final DSLContext dsl = using("jdbc:h2:file:~/h2db");
+	private final DSLContext dsl = using("jdbc:h2:file:./h2db");
 	
 	private Saver() {
 	}
@@ -29,7 +29,7 @@ public class Saver {
 	}
 	
 	private void createTable(FormalizedData data, String tableName) {
-		CreateTableAsStep<Record> table = dsl.createTable(tableName);
+		CreateTableAsStep<Record> table = dsl.createTableIfNotExists(tableName);
 		data.getColumns().stream()
 			.map(column -> table.column(column.getName(), column.getType()))
 			.reduce((first, second) -> second)

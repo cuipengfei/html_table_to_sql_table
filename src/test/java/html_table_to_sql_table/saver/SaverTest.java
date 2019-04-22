@@ -20,7 +20,7 @@ public class SaverTest {
 	
 	@After
 	public void tearDown() throws Exception {
-		DSLContext dsl = DSL.using("jdbc:h2:file:~/h2db");
+		DSLContext dsl = DSL.using("jdbc:h2:file:./h2db");
 		dsl.dropTable("TABLEA").execute();
 	}
 	
@@ -40,7 +40,7 @@ public class SaverTest {
 		Saver.instance().save(formalizedData);
 		
 		//then
-		DSLContext dsl = DSL.using("jdbc:h2:file:~/h2db");
+		DSLContext dsl = DSL.using("jdbc:h2:file:./h2db");
 		Result<Record2<Object, Object>> fetch = dsl
 			.select(field(name("F1")), field(name("F2")))
 			.from(table("TableA"))
